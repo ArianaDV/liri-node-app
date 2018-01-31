@@ -10,27 +10,32 @@ var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
 
 var userRequest = process.argv[2];
-// var my-tweets = inputString[2];
-// var spotify-this-song = inputString[3];
-// var movie-this = inputString[4];
-// var do-what-it-says = inputString[5];
+
+var apiURL = spotify
+  .request('https://api.spotify.com/v1/tracks/7yCPwWs66K8Ba5lFuU2bcx')
+  .then(function(data) {
+    console.log(data); 
+  })
+// console.log(apiURL);
 
 
-    // * `my-tweets`
-switch(userRequest){
+//Recognize user input and execute appropriate request    
+	// switch(userRequest){
 
-	case "my-tweets":
-		console.log("TWEETS");
-		break;
+	// 	case "my-tweets":
+	// 	console.log("TWEETS");
+	// 	break;
 
-	case "spotify-this-song":
-		console.log("SPOTIFY");
-		break;
+	// 	case "spotify-this-song":
+	// 	console.log("SPOTIFY");
+	// 	spotify.search()
+	// 	break;
 
-	case "movie-this":
-		console.log("MOVIE");
-		break;
-};
+	// 	case "movie-this":
+	// 	console.log("MOVIE");
+	// 	break;
+	// };
+	// * `my-tweets`
 
     // * `spotify-this-song`
 
