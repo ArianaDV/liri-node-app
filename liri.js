@@ -11,13 +11,22 @@ var client = new Twitter(keys.twitter);
 
 var userRequest = process.argv[2];
 
-var apiURL = spotify
-  .request('https://api.spotify.com/v1/tracks/7yCPwWs66K8Ba5lFuU2bcx')
-  .then(function(data) {
-    console.log(data); 
-  })
-// console.log(apiURL);
+//Spotify App URL
+// var spot_apiURL = spotify
+//   .request('https://api.spotify.com/v1/tracks/7yCPwWs66K8Ba5lFuU2bcx')
+//   .then(function(data) {
+//     console.log(data); 
+//   });
 
+//Twitter App URL
+var params = {screen_name: 'Ariana_DV4'};
+	client.get('statuses/user_timeline', params, function(error, tweets, response) {
+		if (!error) {
+		console.log(tweets);
+  		}
+	});
+
+ 
 
 //Recognize user input and execute appropriate request    
 	// switch(userRequest){
