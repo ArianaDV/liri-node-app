@@ -1,13 +1,13 @@
 # liri-node-app
 
-This app is used to console log info on movies and songs using the OMDB Api and Spotify Api. 
+This app uses node.js to console log movie and song info on the terminal using the OMDB Api and Spotify Api. 
 
 To console log movie info, type into terminal:
 		node liri.js movie-this "movie-name"
 	
 	example: node. liri.js movie-this space-jam
 
-To console log song info, type into termina:
+To console log song info, type into terminal:
 		node liri.js spotify-this-song "song-name"	
 	example: node. liri.js spotify-this-song fancy
 
