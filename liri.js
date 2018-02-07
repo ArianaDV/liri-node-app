@@ -10,6 +10,7 @@ var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
 
 var userRequest = process.argv[2];
+var songSearch = process.argv[3];
 
 //Spotify App URL
 var spot_apiURL = spotify
@@ -34,7 +35,7 @@ var params = {screen_name: 'Ariana_DV4', count: 20};
 		
 		case "spotify-this-song":
 			console.log("SPOTIFY");
-			spotify.search({ type: 'track', query: 'Real Slim Shady', limit: 1}, function (err, data){
+			spotify.search({ type: 'track', query: songSearch, limit: 1}, function (err, data){
 			if (err) {
     		return console.log('Error occurred: ' + err);
   			}
