@@ -22,6 +22,7 @@ var spot_apiURL = spotify
 //Twitter App URL
 var params = {screen_name: 'Ariana_DV4', count: 20}; 
 
+
 //Recognize user input and execute appropriate request    
 	switch(userRequest){
 		// * `my-tweets`
@@ -54,6 +55,7 @@ var params = {screen_name: 'Ariana_DV4', count: 20};
 			var oParams = {apiKey: '25a7f2c7', title: movie}; 
 			omdb.get(oParams, function(err, movie){
 			if (err) {
+				//if movie === "", movie = 'Mr.Nobody'
 				return console.log("Error:" + err)
 			}
 			else{
@@ -68,7 +70,31 @@ var params = {screen_name: 'Ariana_DV4', count: 20};
 				}
 			})
 			break;
+		// * `do-what-it-says`
+		case "do-what-it-says":
+			fs.readFile("random.txt", "utf8", function(error, data){
+				if (error){
+					return console.log(error);
+				}
+				var randomText = data.split(",");
+				songSearch = randomText[1];
+				spotify.search({ type: 'track', query: songSearch, limit: 1}, function (err, data){
+				if (err) {
+			
+    				return console.log('Error occurred: ' + err);
+  					}
+  					else{	
+  						console.log(data.tracks.items[0].artists[0].name);
+						console.log(data.tracks.items[0].name);
+						console.log(data.tracks.items[0].album.external_urls.spotify);
+						console.log(data.tracks.items[0].album.name);
+  						}
+ 					});				
+				});
+				break;
+				default: console.log("Please enter appropriate value");
 	 };
+	 
 
+    
 
-    // * `do-what-it-says`
